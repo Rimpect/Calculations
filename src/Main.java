@@ -2,53 +2,42 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int x1;
-        int x2;
+        String x1;
+        String x2;
+        int num1;
+        int num2;
         int result;
-        char symbol;
+        char symbol = '+';
+        String input;
+        String оperations;
         Scanner scanner = new Scanner(System.in);
         Calculator calc = new Calculator();
+        Number_systems num_systems = new Number_systems();
+        Сhoosing_an_operation choosing_an_operation = new Сhoosing_an_operation();
 
+
+        System.out.println("Выберите систему счисления для первого числа ");
+        num_systems.change_system();
+        input = scanner.nextLine();
+        System.out.println("Введите первое число");
+        x1 = scanner.nextLine();
+        num1 = num_systems.numbers(x1, input);
+        System.out.println("Выберите систему счисления для второго числа");
+        num_systems.change_system();
+        System.out.println("Введите второе число");
+        input = scanner.nextLine();
+        x2 = scanner.nextLine();
+        num2 = num_systems.numbers(x2, input);
         System.out.println("Выберите операцию");
-        System.out.println("1. Выбор системы счисления");
-        System.out.println("2. Просто");
-        System.out.println("3. Вычисление");
-        String input = scanner.nextLine();
+        symbol = scanner.next().charAt(0);
+        оperations = choosing_an_operation.choice(symbol);
+        calc.operation(оperations,num1,num2);
 
-        //System.out.println("Введите какую систему счисления вы хотите использовать:");
-        //String number_system = scanner.next();
-        //System.out.println("Введите какую операцию вы хотите использовать:");
 
-        //System.out.println("Введите info если нужна доп информация по использованию программы:");
-        //String information = scanner.next();
-        switch (input.toLowerCase()) {
-            case "1":
-                System.out.println("Выберите систему счисления");
-                break;
-            case "2":
-                System.out.println("Просто существует");
-                break;
-            case "3":
-                System.out.println("Введите целое число x1:");
-                x1 = scanner.nextInt();
-                System.out.println("Введите какую операцию вы хотите использовать:");
-                symbol = scanner.next().charAt(0);
-                System.out.println("Введите целое число x2:");
-                x2 = scanner.nextInt();
-                calc.operation(symbol);
-                break;
-            default:
-                System.out.println("Неизвестное значение");
-        }
+
+
 
     }
-    //public int conversion_to_the_number_system(int result, String number_system)
-    //{
-        //if(number_system == "Double")
-        //result = Double.doubleToRawLongBits(result);
-        //return result;
-    //}
-    public enum Operations {
-        addition, subtraction, multiplication, division
-    }
+
+
 }
