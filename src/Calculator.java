@@ -13,37 +13,27 @@ public class Calculator {
     }
     public int division(int x1, int x2)
     {
-        return x1/ x2;//asf
+        return x1/ x2;
     }
-    public void operation(char symbol)
-    {
-        if (symbol == '+')
-        {
-            //result = calc.addition(x1, x2);
-            //System.out.println(result);
-            System.out.println("Вы выбрали сложение");
-        }
-        else if (symbol == '-')
-        {
-            //result = calc.subtraction(x1, x2);
-            //System.out.println(result);
-            System.out.println("Вы выбрали вычитание");
-        }
-        else if (symbol == '*')
-        {
-            //result = calc.multiplication(x1, x2);
-            //System.out.println(result);
-            System.out.println("Вы выбрали умножение");
-        }
-        else if (symbol == '/')
-        {
-            //result = calc.division(x1, x2);
-            //System.out.println(result);
-            System.out.println("Вы выбрали деление");
-        }
 
-        else {
-            System.out.println("Неверно введена операция");
+    public void operation(String оperations,int x1, int x2)
+    {
+
+        if (оperations == "addition")
+        {
+            System.out.println(addition(x1,x2));
+        }
+        if (оperations == "subtraction")
+        {
+            System.out.println(subtraction(x1,x2));
+        }
+        if (оperations == "multiplication")
+        {
+            System.out.println(multiplication(x1,x2));
+        }
+        if (оperations == "division")
+        {
+            System.out.println(division(x1,x2));
         }
     }
 }
