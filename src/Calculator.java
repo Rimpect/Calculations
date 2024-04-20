@@ -15,25 +15,25 @@ public class Calculator {
     {
         return x1/ x2;
     }
-
-    public void operation(String оperations,int x1, int x2)
+    public int operation(String оperations,int x1, int x2,int otvet)
     {
 
         if (оperations == "addition")
         {
-            System.out.println(addition(x1,x2));
+            otvet = addition(x1,x2);
         }
         if (оperations == "subtraction")
         {
-            System.out.println(subtraction(x1,x2));
+            otvet = subtraction(x1,x2);
         }
         if (оperations == "multiplication")
         {
-            System.out.println(multiplication(x1,x2));
+            otvet = multiplication(x1,x2);
         }
         if (оperations == "division")
         {
-            System.out.println(division(x1,x2));
+            otvet = division(x1,x2);
         }
+        return otvet;
     }
 }

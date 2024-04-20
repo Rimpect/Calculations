@@ -6,7 +6,7 @@ public class Main {
         String x2;
         int num1;
         int num2;
-        int result;
+        int result = 0;
         char symbol = '+';
         String input;
         String оperations;
@@ -31,11 +31,10 @@ public class Main {
         System.out.println("Выберите операцию");
         symbol = scanner.next().charAt(0);
         оperations = choosing_an_operation.choice(symbol);
-        calc.operation(оperations,num1,num2);
-
-
-
-
+        result = calc.operation(оperations,num1,num2,result);
+        System.out.println(result);
+        System.out.println("Выберите систему счисления для вывода ответа");
+        num_systems.change_system();
 
     }
 
