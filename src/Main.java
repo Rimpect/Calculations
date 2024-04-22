@@ -31,12 +31,15 @@ public class Main {
         System.out.println("Выберите операцию");
         symbol = scanner.next().charAt(0);
         оperations = choosing_an_operation.choice(symbol);
-        result = calc.operation(оperations,num1,num2,result);
-        System.out.println(result);
-        System.out.println("Выберите систему счисления для вывода ответа");
-        num_systems.change_system();
+        if (оperations != null) {
+            result = calc.operation(оperations,num1,num2);
 
+        } else {
+            System.out.println("Неверно введена операция");
+        }
+        System.out.println("Ответ в двоичной системе счисления: " + Integer.toBinaryString(result));
+        System.out.println("Ответ в восьмеричной системе счисления: " + Integer.toOctalString(result));
+        System.out.println("Ответ в десятичной системе счисления: " + result);
+        System.out.println("Ответ в шестнадцатеричной системе счисления: " + Integer.toHexString(result));
     }
-
-
 }
