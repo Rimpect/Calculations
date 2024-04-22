@@ -1,31 +1,28 @@
 public class Сhoosing_an_operation {
-    String оperations;
-    public String choice(char symbol)
-    {
-        if (symbol == '+')
-        {
-            оperations = "addition";
-            System.out.println("Вы выбрали сложение");
-        }
-        else if (symbol == '-')
-        {
-            оperations = "subtraction";
-            System.out.println("Вы выбрали вычитание");
-        }
-        else if (symbol == '*')
-        {
-            оperations = "multiplication";
-            System.out.println("Вы выбрали умножение");
-        }
-        else if (symbol == '/')
-        {
-            оperations = "division";
-            System.out.println("Вы выбрали деление");
-        }
+    private String operation; // Инициализируем переменную как null
 
-        else {
-            System.out.println("Неверно введена операция");
+    public String choice(char symbol) {
+        switch (symbol) {
+            case '+':
+                operation = "addition";
+                System.out.println("Вы выбрали сложение");
+                break;
+            case '-':
+                operation = "subtraction";
+                System.out.println("Вы выбрали вычитание");
+                break;
+            case '*':
+                operation = "multiplication";
+                System.out.println("Вы выбрали умножение");
+                break;
+            case '/':
+                operation = "division";
+                System.out.println("Вы выбрали деление");
+                break;
+            default:
+                System.out.println("Неверно введена операция");
+                break;
         }
-        return оperations;
+        return operation; // Возвращаем operation, а не операнды
     }
 }

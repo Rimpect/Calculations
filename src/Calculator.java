@@ -1,39 +1,35 @@
 public class Calculator {
-    public int addition(int x1, int x2)
-    {
-        return x1+x2;
+    public int addition(int x1, int x2) {
+        return x1 + x2;
     }
-    public int subtraction(int x1, int x2)
-    {
-        return  x1-x2;
-    }
-    public int multiplication(int x1, int x2)
-    {
-        return  x1*x2;
-    }
-    public int division(int x1, int x2)
-    {
-        return x1/ x2;
-    }
-    public int operation(String оperations,int x1, int x2,int otvet)
-    {
 
-        if (оperations == "addition")
-        {
-            otvet = addition(x1,x2);
+    public int subtraction(int x1, int x2) {
+        return x1 - x2;
+    }
+
+    public int multiplication(int x1, int x2) {
+        return x1 * x2;
+    }
+
+    public int division(int x1, int x2) {
+        if (x2 == 0) {
+            throw new IllegalArgumentException("Деление на ноль недопустимо");
         }
-        if (оperations == "subtraction")
-        {
-            otvet = subtraction(x1,x2);
+        return x1 / x2;
+    }
+
+    public int operation(String operation, int x1, int x2) {
+        switch (operation) {
+            case "addition":
+                return addition(x1, x2);
+            case "subtraction":
+                return subtraction(x1, x2);
+            case "multiplication":
+                return multiplication(x1, x2);
+            case "division":
+                return division(x1, x2);
+            default:
+                throw new IllegalArgumentException("Неизвестная операция: " + operation);
         }
-        if (оperations == "multiplication")
-        {
-            otvet = multiplication(x1,x2);
-        }
-        if (оperations == "division")
-        {
-            otvet = division(x1,x2);
-        }
-        return otvet;
     }
 }
