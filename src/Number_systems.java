@@ -1,21 +1,17 @@
 import java.util.Scanner;
 
-public class Number_systems {
-    private static Scanner scanner = new Scanner(System.in);
+public abstract class Number_systems {
+    protected static Scanner scanner = new Scanner(System.in);
 
-    public void change_system() {
-        System.out.println("Выбор системы счисления");
-        System.out.println("1 Двоичная");
-        System.out.println("2 Восьмиричная");
-        System.out.println("3 Десятичная");
-        System.out.println("4 Шестнацитиричная");
-    }
+    public abstract void change_system();
+
+    public abstract int convertToDecimal(String number, int base);
 
     public static int numbers(String x, String input) {
         int num = 0;
         boolean isValidInput = false;
         int attempt = 0;
-        while (!isValidInput && attempt<5) {
+        while (!isValidInput && attempt < 5) {
             try {
                 switch (input) {
                     case "1":
@@ -43,15 +39,21 @@ public class Number_systems {
                         input = scanner.nextLine();
                         System.out.println("Введите число:");
                         x = scanner.nextLine();
-                        continue; // Пропускаем итерацию цикла, если выбранная система счисления неверна
+                        continue;
+                }
+                // Проверка на числа, начинающиеся с "0"
+                if (x.startsWith("0") && !input.equals("1")) {
+                    System.out.println("Число не должно начинаться с '0' кроме двоичных чисел. Пожалуйста, введите корректное число:");
+                    x = scanner.nextLine();
+                    attempt++;
+                    continue;
                 }
             } catch (NumberFormatException e) {
-                if(attempt == 4){
+                if (attempt == 4) {
                     System.out.println("Попытки на ввод корректного числа закончились число по умолчанию будет равно 0 введите что либо для продолжения работы");
                     x = scanner.nextLine();
-                    attempt++;}
-
-                else{
+                    attempt++;
+                } else {
                     System.out.println("Некорректное число. Пожалуйста, введите число в соответствующей системе счисления:");
                     x = scanner.nextLine();
                     attempt++;

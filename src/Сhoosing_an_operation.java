@@ -1,5 +1,5 @@
 public class Сhoosing_an_operation {
-    private String operation; // Инициализируем переменную как null
+    private String operation;
 
     public String choice(char symbol) {
         switch (symbol) {

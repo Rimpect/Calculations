@@ -1,23 +1,23 @@
-public class Calculator {
+public class Calculator implements Calculat {
+    @Override
     public int addition(int x1, int x2) {
         return x1 + x2;
     }
-
+    @Override
     public int subtraction(int x1, int x2) {
         return x1 - x2;
     }
-
+    @Override
     public int multiplication(int x1, int x2) {
         return x1 * x2;
     }
-
+    @Override
     public int division(int x1, int x2) {
         if (x2 == 0) {
             throw new IllegalArgumentException("Деление на ноль недопустимо");
         }
         return x1 / x2;
     }
-
     public int operation(String operation, int x1, int x2) {
         switch (operation) {
             case "addition":
